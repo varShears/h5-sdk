@@ -1,6 +1,8 @@
-function init(_this){
+import { initFingerprintJS } from './utils.js'
+
+function init(_this) {
   // 页面添加点击冒泡捕获
-  document.addEventListener('mousedown', e=>{
+  document.addEventListener('mousedown', (e) => {
     console.log(e)
     const evt = {
       sys: {
@@ -8,6 +10,7 @@ function init(_this){
         browserLang: _this.broswerLang, // 浏览器语言
         broswerVersion: _this.broswerVersion, // 浏览器版本
         sys: _this.sys, // 当前系统
+        equipment_unique_id: initFingerprintJS(), // uniqueId
       },
       et: {
         auth: _this.getAuthMessage(), // 当前用户信息
